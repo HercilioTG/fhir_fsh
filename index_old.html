@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHIR - SESGO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo-fhir.png" type="image/png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            background-image: url('saude-background.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-family: 'Quicksand', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            /*background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 80%);*/
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .logo-sesgo {
+            width: 350px;
+            height: auto;
+            margin-bottom: 20px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1.0) 0%, rgba(255, 255, 255, 0) 95%);
+        }
+        #menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+        }
+        #menu li {
+            display: inline-block;
+            margin: 0 10px;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        #menu li a {
+            color: #234d20;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 15px 30px;
+            position: relative;
+            border-radius: 10px; 
+            overflow: hidden;
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            background-color: #fff;
+            z-index: 1;
+        }
+        #menu li a:hover {
+            color: #fff;
+            background-color: rgba(35, 77, 32, 0.5);
+        }
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            body, html {
+                overflow-x: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo_sesgo.png" alt="Logo SES-GO" class="logo-sesgo">
+            <h1><img src="logo-fhir.png" alt="Logo FHIR" class="logo"><span style="color: red;">FHIR</span> - Interoperabilidade da saúde em Goiás</h1>
+            <ul id="menu">
+                <li><a href="https://fhir-homolog.saude.go.gov.br/r4/core">Guia de Implementação SES-GO</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <!-- Conteúdo -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+stages:
+  - build
+  - deploy
+
+#var globais
+variables:
+  URL_INGRESS_HOMOLOG: fhir-homolog.saude.go.gov.br
+  URL_INGRESS_PROD: fhir.saude.go.gov.br
+  NAMESPACE_GERAL: ig-fhir
+  IMG_GERAL: ig-fhir
+
+#----------------------HOMOLOG--------------------------------
+01-docker-build-homolog:
+  stage: build
+  tags:
+    - k8s
+  variables:
+    URL_INGRESS: $URL_INGRESS_HOMOLOG
+  environment:
+    name: homolog
+    url: http://$URL_INGRESS
+  extends: .docker_build_before_script
+  script:
+    - docker buildx build  -t $REGISTRY_URL/$CI_PROJECT_NAMESPACE/$IMG_GERAL:$CI_PIPELINE_ID --push .
+    # - docker push $REGISTRY_URL/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME_SLUG:$IMAGE_VERSION
+    # - docker system prune --all --force --volumes
+  only:
+    refs:
+      - develop
+      # - /feature.*/
+      # - /hotfix.*/
+
+
+02-k8s-deploy-homolog:
+  stage: deploy
+  tags:
+    - k8s
+  image:
+    name: harbor.saude-go.net/sespublic/argocli-kustomize-git
+  variables:
+    NAMESPACE: $NAMESPACE_GERAL
+    URL_IMAGE_BUILD: $REGISTRY_URL/$CI_PROJECT_NAMESPACE/$IMG_GERAL:$CI_PIPELINE_ID
+    URL_INGRESS: $URL_INGRESS_HOMOLOG
+    HEALTH_CHECK: /
+    PORT: 80
+    # COMMAND: apache2ctl -DFOREGROUND
+    #         python manage.py runserver 0.0.0.0:$PORT
+  environment:
+    name: homolog
+    url: http://$URL_INGRESS
+  extends:
+    - .k8s_gitOps_before_script
+    - .k8s_gitOps_after_script
+  script:
+    - echo $SCRIPTS_PATH
+    - echo $CI_PROJECT_NAME_SLUG
+    - sh $SCRIPTS_PATH/gera-files-k8s.sh
+    - echo "***deploy executado***"
+  only:
+    refs:
+      - develop
+      # - /feature.*/
+      # - /hotfix.*/
+
+#----------------------PROD--------------------------------
+01-docker-build-prod:
+  stage: build
+  tags:
+    - k8s
+  variables:
+    URL_INGRESS: $URL_INGRESS_PROD
+  environment:
+    name: prod
+    url: http://$URL_INGRESS
+  extends: .docker_build_before_script
+  script:
+    - docker buildx build -t $REGISTRY_URL/$CI_PROJECT_NAMESPACE/$IMG_GERAL:$CI_COMMIT_TAG --push .
+    # - docker push $REGISTRY_URL/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME_SLUG:$IMAGE_VERSION
+    # - docker system prune --all --force --volumes
+  only:
+    refs:
+      - tags
+
+
+02-k8s-deploy-prod:
+  stage: deploy
+  tags:
+    - k8s
+  image:
+    name: harbor.saude-go.net/sespublic/argocli-kustomize-git
+  variables:
+    NAMESPACE: $NAMESPACE_GERAL
+    URL_IMAGE_BUILD: $REGISTRY_URL/$CI_PROJECT_NAMESPACE/$IMG_GERAL:$CI_COMMIT_TAG
+    URL_INGRESS: $URL_INGRESS_PROD
+    HEALTH_CHECK: /
+    PORT: 80
+    # COMMAND: ./entrypoint.sh && 
+    #         python manage.py runserver 0.0.0.0:$PORT
+  environment:
+    name: prod
+    url: http://$URL_INGRESS
+  extends:
+    - .k8s_gitOps_before_script
+    - .k8s_gitOps_after_script
+  script:
+    - echo $SCRIPTS_PATH
+    - echo $CI_PROJECT_NAME_SLUG
+    - sh $SCRIPTS_PATH/gera-files-k8s.sh
+    - echo "***deploy executado***"
+  only:
+    refs:
+      - tags
+
+
+
+# include: deploy.yml
+# https://git.saude-go.net/bigdata/k8s-apps
+include:
+    - project: 'bigdata/k8s-apps'
+      ref: master
+      file: '/gitops/deploy.yml'

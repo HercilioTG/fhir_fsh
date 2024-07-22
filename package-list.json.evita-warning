@@ -1,0 +1,15 @@
+{
+  "package-id" : "br.go.ses.core",
+  "title" : "Guia de Implementação da SES GO - CORE",
+  "canonical" : "https://fhir.saude.goias.gov.br/core",
+  "introduction" : "Guia de Implementação da SES GO - CORE",
+  "list" : [
+    {
+      "version" : "current",
+      "desc" : "Continuous Integration Build (latest in version control)",
+      "path" : "https://fhir.saude.goias.gov.br/core",
+      "status" : "draft",
+      "current" : true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Guia de Implementação da SES GO - CORE",
+  "category": "Research",
+  "npm-name": "br.go.ses.core",
+  "description": "Guia de Implementação da SES GO - CORE.",
+  "authority": "SES - GO",
+  "country": "br",
+  "history": "https://fhir.saude.goias.gov.br/core/history.html",
+  "language": ["pt"],
+  "canonical": "https://fhir.saude.goias.gov.br/core",
+  "ci-build": "https://fhir.saude.goias.gov.br/core",
+  "editions": [
+    {
+      "name": "Releases",
+      "ig-version": "0.0.1",
+      "package": "br.go.ses.core#0.0.1",
+      "fhir-version": ["4.0.1"],
+      "url": "https://fhir.saude.goias.gov.br/core"
+    }
+  ]
+}

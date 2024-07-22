@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:fhir="http://hl7.org/fhir/feed" version="2.0">
+  <channel>
+    <title>SES GO Packages</title>
+    <description>Pacotes produzidos pela SES GO</description>
+    <link>https://fhir.saude.goias.gov.br//package-feed.xml</link>
+    <generator>HL7, Inc FHIR Publication tooling</generator>
+    <lastBuildDate>Fri, 22 Dec 2023 00:01:25 +0000</lastBuildDate>
+    <atom:link href="https://fhir.saude.goias.gov.br//package-feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 22 Dec 2023 00:01:25 +0000</pubDate>
+    <language>pt</language>
+    <ttl>600</ttl>
+    <item>
+      <title>br.go.ses.core#0.0.1</title>
+      <description>Primeira liberação publicada</description>
+      <link>https://fhir.saude.goias.gov.br/core/site/package.tgz</link>
+      <guid isPermaLink="true">https://fhir.saude.goias.gov.br/core/package.tgz</guid>
+      <dc:creator>SES-GO</dc:creator>
+      <fhir:version>4.0.1</fhir:version>
+      <fhir:kind>IG</fhir:kind>
+      <pubDate>Fri, 22 Dec 2023 00:01:25 +0000</pubDate>
+      <fhir:details>Publicação do guia que orienta a criação de guias de implementação.</fhir:details>
+    </item>
+  </channel>
+</rss>

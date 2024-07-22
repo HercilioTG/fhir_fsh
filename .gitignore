@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+/fsh-generated
+/input-cache
+/output
+/temp
+/template
+/node_modules
+package-lock.json
+package.json
+validador/validator_cli.jar
