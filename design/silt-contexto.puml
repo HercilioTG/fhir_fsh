@@ -1,0 +1,31 @@
+@startuml silt-contexto
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_TOP_DOWN()
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/fire.puml
+!include FONTAWESOME/server.puml
+!include FONTAWESOME/code.puml
+!include FONTAWESOME/user.puml
+!include FONTAWESOME/user_lock.puml
+
+
+Person(user, "Usuários")
+System(silt, "SILT",  "Aplicação Web", $sprite = code)
+System_Ext(apipaciente, "API Pacientes",$sprite = server)
+System_Ext(apiproduto, "API Produto Medicinal", $sprite = server)
+System_Ext(datalake, "Data Lake", "Recursos FHIR", $sprite = fire)
+System_Ext(sso, "SSO", "Autenticação e autorização", $sprite = user_lock)
+
+Rel(user, silt, "utiliza")
+
+
+
+Rel_R(silt, apiproduto, "consulta" , "instâncias de Medication")
+Rel_R(silt, apipaciente, "consulta", "instâncias de Patient" )
+Rel_L(silt,sso,"autoriza e autentica")
+BiRel(silt, datalake, "fornece", "instâncias de recursos" )
+
+
+@enduml

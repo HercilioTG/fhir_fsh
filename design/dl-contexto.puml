@@ -1,0 +1,65 @@
+@startuml dl-contexto
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_TOP_DOWN()
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/fire.puml
+!include FONTAWESOME/chart_bar.puml
+!include FONTAWESOME/code.puml
+!include FONTAWESOME/database.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2
+!include DEVICONS/java.puml
+!include DEVICONS/dotnetcore.puml
+
+
+rectangle "Sistemas" as sistemas #line.dashed{
+
+System_Ext(silt, "SILT (D1)", "Backend", $sprite = java)
+
+System_Ext(sistema2, "Sistema (D2)", "Backend", $sprite = dotnetcore)
+
+System_Ext(sistemaN, "Sistema (Dn)", "Backend", $sprite = code)
+}
+
+
+System(dl, "Data Lake",  "Instâncias FHIR\n(data + EventSourcing)", $sprite = database)
+
+System_Ext(tx, "Servidor de Terminologia e Validação",  "Servidor de terminologias e validação", $sprite = fire)
+
+rectangle "Acesso de leitura por domínio (FHIR)\n(por exemplo, SILT é consumidor de um ou mais indexadores)" as leitura #line.dashed {
+
+    System_Ext(consulta1, "Indexador (D1)", $sprite = fire)
+    System_Ext(consulta2, "Indexador (D2)", $sprite = fire)
+    System_Ext(consultaN, "Indexador (Dn)", $sprite = fire)
+}
+
+
+rectangle "Acesso de escrita por domínio (FHIR)\n(não inclui regras de negócio)" as escrita #line.dashed {
+    System_Ext(produtorN, "Produtor (Dn)", $sprite = fire)
+    System_Ext(produtor2, "Produtor (D2)", $sprite = fire)
+    System_Ext(produtor1, "Produtor (D1)", $sprite = fire)
+}
+
+BiRel_U(dl, escrita, "atualiza & evento" , "Notifica alteração")
+BiRel_D(dl, leitura, "consulta & evento" , "Notifica alteração")
+
+
+BiRel_L(sistemas,tx, "valida instâncias & consulta", "CodeSystems,ValueSets")
+
+Rel_L(silt, produtor1, "Command", "RESTFul FHIR API")
+Rel(silt, consulta1, "Query", "RESTFul FHIR API")
+
+Rel_L(sistema2, produtor2, "Command", "RESTFul FHIR API")
+Rel(sistema2, consulta2, "Query", "RESTFul FHIR API")
+
+Rel_L(sistemaN, produtorN, "Command", "RESTFul FHIR API")
+Rel(sistemaN, consultaN, "Query", "RESTFul FHIR API")
+
+System_Ext(dash, "Dashboard", "Backend", $sprite = 	chart_bar)
+Rel_U(dash, consulta1, "Query")
+Rel_U(dash, consulta2, "Query")
+Rel_U(dash, consultaN, "Query")
+
+@enduml

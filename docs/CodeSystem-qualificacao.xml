@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="qualificacao"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">Códigos para habilidades de animais terapeutas</div>
+  </text>
+  <url value="https://fhir.fabrica.inf.ufg.br/ig/CodeSystem/qualificacao"/>
+  <version value="0.0.2"/>
+  <name value="QualificacaoAnimalTerapeuta"/>
+  <title value="Qualificação de animal terapeuta"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2023-12-21T20:59:12-03:00"/>
+  <publisher value="CGIS"/>
+  <contact>
+    <name value="CGIS"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://cgis.ufg.br/"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fabio@inf.ufg.br"/>
+    </telecom>
+  </contact>
+  <description value="Vocabulário para designar as capacidades de um animal terapeuta"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="BR"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <valueSet value="https://fhir.fabrica.inf.ufg.br/ig/ValueSet/vs-qualificacao"/>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="emocional"/>
+    <display value="Emocional"/>
+    <definition value="Apoio emocional"/>
+  </concept>
+  <concept>
+    <code value="terapia"/>
+    <display value="Animal para terapia"/>
+    <definition value="Treinado para interagir com pacientes em ambiente de saúde"/>
+  </concept>
+  <concept>
+    <code value="servico"/>
+    <display value="Serviço"/>
+    <definition value="Treinados para auxiliar pessoas com deficiências físicas"/>
+  </concept>
+  <concept>
+    <code value="detector"/>
+    <display value="Detector de doenças"/>
+    <definition value="Apto a detectar doenças, por exemplo, pelo odor"/>
+  </concept>
+  <concept>
+    <code value="alerta"/>
+    <display value="Alerta"/>
+    <definition value="Apto a detectar sinais de crise e emitir alerta."/>
+  </concept>
+</CodeSystem>

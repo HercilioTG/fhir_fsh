@@ -1,0 +1,42 @@
+@startuml
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!include DEVICONS/angular.puml
+!include DEVICONS/database.puml
+!include DEVICONS/java.puml
+
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/fire.puml
+!include FONTAWESOME/user_lock.puml
+!include FONTAWESOME/server.puml
+
+HIDE_STEREOTYPE()
+
+Person(usuario, "Usuários")
+
+System_Boundary(c1, "SILT", $link="https://github.com/plantuml-stdlib/C4-PlantUML") {
+Container(frontend, "Frontend", "Angular", "Interface gráfica web", $sprite="angular")
+Container(backend, "Backend", "Java", "API REST", $sprite="java")
+ContainerDb(db, "Banco de dados", "postgresql", "Relacional", $sprite="database")
+ContainerDb(dbfhir, "Banco de dados", "postgresql", "Instâncias de recursos", $sprite="database")
+Container(hapifhir, "Servidor FHIR", "hapiFHIR", "API FHIR", $sprite="fire")
+}
+
+System_Ext(sso, "SSO", "Autenticação e autorização", $sprite = user_lock)
+System_Ext(apipaciente, "API Pacientes",$sprite = server)
+System_Ext(apiproduto, "API Produto Medicinal", $sprite = server)
+System_Ext(datalake, "Data Lake", "Recursos FHIR", $sprite = fire)
+
+Rel_R(backend, hapifhir,"Mantém de instâncias de recursos","fhir+json/HTTPS REST")
+Rel_R(backend,apipaciente,"Consulta instâncias de recursos", "fhir+json/HTTPS REST")
+Rel_R(backend,apiproduto,"Consulta instâncias de recursos", "fhir+json/HTTPS REST")
+BiRel_L(sso, frontend, "token com autenticação/autorização", "json/HTTPS REST")
+Rel(usuario, frontend, "Consulta e envia informações","json \n fhir+json", "HTTPS REST",)
+Rel(frontend, backend, "Requisita e envia informações","json \n fhir+json", "HTTPS REST")
+Rel(backend, db, "Mantém dados", "JDBC")
+Rel(hapifhir,dbfhir,"Mantém instâncias de recursos")
+BiRel(backend,datalake, "Fornece instâncias de recursos", "fhir+json/HTTPS REST")
+
+@enduml

@@ -1,0 +1,407 @@
+{
+  "date" : "Thu, 21 Dec, 2023 20:59:12 -0300",
+  "doco" : "For each file: start is seconds after start activity occurred. Length = milliseconds activity took",
+  "files" : [
+    {
+      "name" : "/fsh-generated/resources/ImplementationGuide-br.ufg.cgis.ig.json",
+      "size" : 4398,
+      "processes" : [
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 15
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "checkR4R4B",
+          "start" : 13,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 33
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 202
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 47
+        },
+        {
+          "activity" : "generate2",
+          "start" : 16,
+          "length" : 40
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 23,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/CodeSystem-qualificacao.json",
+      "size" : 1390,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 6
+        },
+        {
+          "activity" : "validate",
+          "start" : 13,
+          "length" : 7
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 11
+        },
+        {
+          "activity" : "generate2",
+          "start" : 16,
+          "length" : 593
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/NamingSystem-cadastro-animal-terapeuta.json",
+      "size" : 898,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 18
+        },
+        {
+          "activity" : "validate",
+          "start" : 13,
+          "length" : 112
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 4
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/NamingSystem-cadastro-animal.json",
+      "size" : 1120,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 11
+        },
+        {
+          "activity" : "validate",
+          "start" : 13,
+          "length" : 10
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 14,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 6
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 3
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/OperationDefinition-qualification.json",
+      "size" : 1498,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 10
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 8
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 3
+        },
+        {
+          "activity" : "makeDependencies",
+          "start" : 20,
+          "length" : 1
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 23,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/Organization-clinica-veterinaria.json",
+      "size" : 446,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 3
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 9
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 4
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/Patient-romeu.json",
+      "size" : 1874,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 4
+        },
+        {
+          "activity" : "load-configure",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 24
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 6
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 7
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/Practitioner-terapeuta.json",
+      "size" : 1349,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 10
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 5
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/StructureDefinition-animal-terapeuta.json",
+      "size" : 5771,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 5
+        },
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 11
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 60
+        },
+        {
+          "activity" : "validate",
+          "start" : 13,
+          "length" : 169
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 86
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 542
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 23,
+          "length" : 5
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 25,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/StructureDefinition-animal.json",
+      "size" : 5188,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 6
+        },
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 6
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 49
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 116
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 14,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 76
+        },
+        {
+          "activity" : "generate2",
+          "start" : 17,
+          "length" : 224
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 23,
+          "length" : 4
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/ValueSet-vs-qualificacao.json",
+      "size" : 690,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 13,
+          "length" : 3
+        },
+        {
+          "activity" : "loadDepInfo",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "load",
+          "start" : 13,
+          "length" : 8
+        },
+        {
+          "activity" : "validate",
+          "start" : 13,
+          "length" : 4
+        },
+        {
+          "activity" : "generate1",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "generate2",
+          "start" : 18,
+          "length" : 1677
+        }
+      ]
+    }
+  ]
+}
